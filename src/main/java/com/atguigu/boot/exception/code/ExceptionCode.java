@@ -104,4 +104,14 @@ public enum ExceptionCode implements BaseExceptionCode {
         msg = String.format(msg, param);
         return this;
     }
+
+    public static void main(String[] args) {
+        for (ExceptionCode exceptionCode : ExceptionCode.values()) {
+            int code = exceptionCode.getCode();
+            String msg = exceptionCode.getMsg();
+            System.out.println(code + " -" + msg);
+            System.out.println(exceptionCode + ", ordinal" + exceptionCode.ordinal());
+
+        }
+    }
 }

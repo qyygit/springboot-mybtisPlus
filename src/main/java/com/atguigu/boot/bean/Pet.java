@@ -15,8 +15,10 @@ import lombok.ToString;
 public class Pet {
 
     private String name;
+    private String age;
 
     public Pet(String name) {
         this.name = name;
     }
+
 }

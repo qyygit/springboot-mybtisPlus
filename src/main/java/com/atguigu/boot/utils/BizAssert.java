@@ -9,7 +9,6 @@ import java.util.Collection;
 
 import static com.atguigu.boot.exception.BaseException.BASE_VALID_PARAM;
 
-
 /**
  * 断言
  */

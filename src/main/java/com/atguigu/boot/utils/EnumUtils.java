@@ -1,7 +1,7 @@
 package com.atguigu.boot.utils;
 
 
-import com.atguigu.boot.common.enums.BaseEnum;
+import com.atguigu.boot.enums.BaseEnum;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public final class EnumUtils {
      * @param <T>
      * @return
      */
-    public static <T extends BaseEnum> List<Map<String, Object>> enum2List(Class<? extends BaseEnum> enumType) {
+   public static <T extends BaseEnum> List<Map<String, Object>> enum2List(Class<? extends BaseEnum> enumType) {
         if (enumType == null) {
             return null;
         }

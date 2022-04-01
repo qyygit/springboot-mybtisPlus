@@ -1,9 +1,11 @@
 package com.atguigu.boot.thymeleafcontroller;
 
+import com.atguigu.boot.base.BaseController;
 import com.atguigu.boot.bean.City;
 import com.atguigu.boot.mapper.CityMapper;
 import com.atguigu.boot.service.CityService;
 import com.atguigu.boot.service.impl.CityServiceImpl;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,8 @@ import java.util.List;
 @RestController
 @RequestMapping
 @Slf4j
-public class CityController {
+@Api(tags = "城市控制器")
+public class CityController  extends BaseController {
 
     @Autowired
     CityService cityService;
@@ -26,6 +29,9 @@ public class CityController {
 
     @Autowired
     CityMapper cityMapper;
+
+
+
 
     @RequestMapping("/cityBatch")
     public void saveBacth(){

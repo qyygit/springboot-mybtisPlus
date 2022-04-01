@@ -62,7 +62,7 @@ public class IndexController extends BaseController {
 
         Page<Object> page = getPage();
         User user = new User();
-        user.setName("ceshi");
+//        user.setName("ceshi");
         boolean save = userService.save(user);
        return R.success();
     }

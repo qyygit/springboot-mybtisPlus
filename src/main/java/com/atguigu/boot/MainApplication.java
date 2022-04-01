@@ -15,7 +15,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 //@ServletComponentScan(basePackages = "com.atguigu.boot")
 //@SpringBootApplication
-@MapperScan(basePackages = "com.atguigu.*.mapper")
+@MapperScan(basePackages ={"com.atguigu.boot.mapper", "com.atguigu.boot.dog.mapper" ,"com.atguigu.boot.quartz.mapper"})
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @ComponentScan("com.atguigu.boot")

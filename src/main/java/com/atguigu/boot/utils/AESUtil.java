@@ -11,7 +11,7 @@ import java.security.SecureRandom;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class  AESUtil {
+public class AESUtil {
     // 秘钥
     private static final String KEY ="6MWlmtB8SspgxqpW";
     private static final String KEY_ALGORITHM = "AES";

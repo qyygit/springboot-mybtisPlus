@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.boot.mapper.AccountMapper">
+<!--    结果集映射-->
+<!--    <resultMap id="accountResultMap" type="com.atguigu.boot.bean.Account" >-->
+<!--    &lt;!&ndash; 用id属性映射主键字段 &ndash;&gt;-->
+<!--    <id property="userId" column="user_id" />-->
+<!--</resultMap>-->
+
+<!--    public Account getAcct(Long id); -->
+    <select id="getAccount" resultType="com.atguigu.boot.bean.Account">
+        select * from  account where  id=#{id}
+    </select>
+
+<!--    -->
+
+</mapper>

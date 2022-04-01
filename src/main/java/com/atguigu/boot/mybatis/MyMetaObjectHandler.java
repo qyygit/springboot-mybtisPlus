@@ -4,7 +4,6 @@ import com.atguigu.boot.common.entity.Entity;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
  * @Description: TODO
  * @DateTime: 2021/9/27 15:35
  **/
-@Component
+//@Component
 @Slf4j
 public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override

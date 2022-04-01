@@ -1,16 +1,12 @@
 package com.atguigu.boot.controller;
 
 
-import com.atguigu.boot.dozer.DozerBeanConfig;
 import com.atguigu.boot.dozer.DozerUtils;
+import com.atguigu.boot.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 //import org.apache.commons.collections4.CollectionUtils;
 //@ResponseBody
@@ -33,9 +29,15 @@ public class HelloController {
 //    public Car testCar(){
 //        return car;
 //    }
-    @PostMapping("/hello")
+    @GetMapping("/hello")
     public String handle01(@RequestParam("name") String name){
             log.info("请求进来了....");
+            int i = 10/0;
+
+            if (i>1){
+                throw new BizException("全局异常处理");
+            }
+
         return "Hello, Spring Boot 2!"+"你好："+name;
     }
 

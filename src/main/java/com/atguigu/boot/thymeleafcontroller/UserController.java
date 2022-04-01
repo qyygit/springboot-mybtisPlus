@@ -185,7 +185,7 @@ public class UserController {
     @GetMapping("/testCount2")
     public void testCount2() {
         User user = new User();
-        user.setName("黄主管");
+//        user.setName("黄主管");
 //        user.setAge(28);
         QueryWrapper<User> wrapper = new QueryWrapper<>(user);
         List<User> users = userMapper.selectList(wrapper);
@@ -240,7 +240,7 @@ public class UserController {
         List<User> entityList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             User user = new User();
-            user.setName("aaa");
+//            user.setName("aaa");
             user.setAge(18);
             user.setEmail("aaa");
             entityList.add(user);
