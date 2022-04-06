@@ -18,7 +18,7 @@ import java.util.stream.Stream;
  *
  */
 @Slf4j
-public class DateUtils {
+public class DateUtils extends org.apache.commons.lang3.time.DateUtils{
     public final static String DEFAULT_YEAR_FORMAT = "yyyy";
     public final static String DEFAULT_MONTH_FORMAT = "yyyy-MM";
     public final static String DEFAULT_MONTH_FORMAT_SLASH = "yyyy/MM";
@@ -33,6 +33,10 @@ public class DateUtils {
     public final static String MONTH = "MONTH";
     public final static String WEEK = "WEEK";
 
+    private static final String[] parsePatterns = {
+            "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM",
+            "yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM",
+            "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM"};
     /**
      * 一个月平均天数
      */
@@ -65,6 +69,21 @@ public class DateUtils {
             pattern = DEFAULT_MONTH_FORMAT;
         }
         return date.format(DateTimeFormatter.ofPattern(pattern));
+    }
+
+
+    /**
+     * 日期型字符串转化为日期 格式
+     */
+    public static Date parseDate(Object str) {
+        if (str == null) {
+            return null;
+        }
+        try {
+            return parseDate(str.toString(), parsePatterns);
+        } catch (ParseException e) {
+            return null;
+        }
     }
 
     /**

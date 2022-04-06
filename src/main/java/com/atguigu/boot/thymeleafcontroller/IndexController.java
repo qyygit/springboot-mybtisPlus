@@ -1,9 +1,9 @@
 package com.atguigu.boot.thymeleafcontroller;
 
+import com.atguigu.boot.base.BaseController;
 import com.atguigu.boot.bean.Account;
 import com.atguigu.boot.bean.City;
 import com.atguigu.boot.bean.User;
-import com.atguigu.boot.common.result.BaseController;
 import com.atguigu.boot.common.result.R;
 import com.atguigu.boot.dozer.DozerUtils;
 import com.atguigu.boot.mapper.CityMapper;

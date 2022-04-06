@@ -8,33 +8,53 @@ package com.atguigu.boot.constants;
  */
 public class SystemConstants {
 
-    public static final  String DEVICE_SUPPLIER  ="北京休恩博得科技股份有限公司";
-    public static final  String REDIS_USER_MEUN ="system:user:menu";
-    public static final  String REDIS_USER_ROLE ="system:user:role";
     public static final String AUTHORIZE_TOKEN = "token";
     public static final String AUTHORIZE_UUID = "uuid";
-    public static final String AUTHORIZE_SIMI = "simi";
-    public static final String START_TIME = " 00:00:00";
-    public static final String END_TIME = " 23:59:59";
+
+    //默认密码 6个 1
+    public static final String DEFAULT_PWD = "111111";
+
+    /**
+     * 功能类型
+     */
+    public static final String FUN_TYPE_ADD = "ADD";
+    public static final String FUN_TYPE_UPDATE = "UPDATE";
+
+    //读取文件,开始页码
+    public static final Integer ROW_NUMBER_BEGIN = 2;
+
+    /**
+     * UTF-8 字符集
+     */
+    public static final String UTF8 = "UTF-8";
+
+    /**
+     * 英文
+     */
+    public static final String LANGUAGE_EN = "en";
+
+    /**
+     * 中文
+     */
+    public static final String LANGUAGE_ZH = "zh";
+
+    /**
+     * city 省市区
+     */
+    public static final String CITY_INIT = "city";
+
+    /**
+     * 资源映射路径 前缀
+     */
+    public static final String RESOURCE_PREFIX = "/profile";
+
+    /**
+     * 导出最大条数
+     */
     public static final Integer EXCEL_EXPORT_MAX_COUNT = 5000;
 
-    //工具用户前缀
-//    public static final String TOOL_USER_PREFIX = "T-";
-
-    //用户默认密码 haiyou123..
-    public static final String USER_PSWD= "Haiyou123..";
-
-    //角色名只读  需要和数据库角色表中名字对应
-    public static final String READ_ONLY= "只读";
-    //角色名只读  需要和数据库角色表中名字对应
-    public static final String READ_ONLY_ID= "2";
-
-//    仓库号
-    public static final String B01= "B01";
-    public static final String B14= "B14";
-    public static final String B16= "B16";
-
-
-
-
+    /**
+     *  登录请求过滤token
+     */
+    public static final String AUTH_LOGIN = "/auth/login";
 }

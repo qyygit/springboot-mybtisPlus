@@ -20,11 +20,11 @@ public class CodeGenerator {
     private static String url = "jdbc:mysql://127.0.0.1:3306/qyy_db?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT%2B8";
     private static String username = "root";
     private static String password = "root";
-    private static String packagePath = "com.atguigu.boot.dog"; //包路径
+    private static String packagePath = "com.qyy.device"; //包路径
     private static String author = "qyy"; //作者
     private static String prefix = ""; //前缀
     private static String projectPath = "D:\\mybatisPlus\\workspace\\qyy_db\\plus"; //项目的路径，在下面自动拼接了 /src/main/java
-    private static String[] tables = {"dog"};//生成的表
+    private static String[] tables = {"iot_device"};//生成的表
 
 
     public static void main(String[] args) {

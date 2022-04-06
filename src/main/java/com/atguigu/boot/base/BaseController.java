@@ -3,15 +3,20 @@ package com.atguigu.boot.base;
 import cn.hutool.core.util.StrUtil;
 import com.atguigu.boot.common.result.R;
 import com.atguigu.boot.dozer.DozerUtils;
+import com.atguigu.boot.utils.DateUtils;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.beans.PropertyEditorSupport;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Map;
 
 
@@ -20,6 +25,7 @@ import java.util.Map;
  *
  */
 public abstract class BaseController {
+
     @Resource
     protected HttpServletRequest request;
     @Resource
@@ -51,6 +57,20 @@ public abstract class BaseController {
      */
     int DEFAULT_LIMIT = 10;
     int MAX_LIMIT = 100;
+
+    /**
+     * 将前台传递过来的日期格式的字符串，自动转化为Date类型
+     */
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        // Date 类型转换
+        binder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) {
+                setValue(DateUtils.parseDate(text));
+            }
+        });
+    }
 
     /**
      * 成功返回
