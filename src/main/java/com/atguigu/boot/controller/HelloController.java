@@ -5,7 +5,10 @@ import com.atguigu.boot.dozer.DozerUtils;
 import com.atguigu.boot.exception.BizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
 //import org.apache.commons.collections4.CollectionUtils;
@@ -34,7 +37,9 @@ public class HelloController {
             log.info("请求进来了....");
             int i = 10/0;
 
-            if (i>1){
+//        ObjectUtils.isEmpty();
+
+        if (i>1){
                 throw new BizException("全局异常处理");
             }
 

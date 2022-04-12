@@ -4,8 +4,6 @@ import com.atguigu.boot.common.entity.Entity;
 import lombok.*;
 
 @Data
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class  Person extends Entity<String> {

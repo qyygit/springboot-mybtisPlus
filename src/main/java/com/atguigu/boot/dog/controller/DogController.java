@@ -6,13 +6,17 @@ import com.atguigu.boot.common.result.R;
 import com.atguigu.boot.dog.Dto.DogDto;
 import com.atguigu.boot.dog.entity.Dog;
 import com.atguigu.boot.dog.service.DogService;
-import com.atguigu.boot.utils.bean.BeanUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.time.StopWatch;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StopWatch;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -43,40 +47,55 @@ public class DogController extends BaseController {
 
 
 
-    @GetMapping(value = "/test/dozer")
-    public R test() {
-        Dog dog = new Dog();
-        dog.setName("哈哈");
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+//    @GetMapping(value = "/test/dozer")
+//    public R test() {
+//        Dog dog = new Dog();
+//        dog.setName("哈哈");
+//        StopWatch stopWatch = new StopWatch();
+//        stopWatch.start();
+//
+//        for (int i = 0; i < 10000; i++) {
+//          dozerUtils.map(dog, DogDto.class);
+//        }
+//        stopWatch.stop();
+//
+//        System.out.println("dozer耗时" + stopWatch.getTotalTimeMillis());
+//
+//        return R.success();
+//    }
+//
+//    @GetMapping(value = "/test/beanCopie")
+//    public R test2() {
+//        Dog dog = new Dog();
+//        dog.setName("哈哈");
+//        StopWatch stopWatch = new StopWatch();
+//        stopWatch.start();
+//
+//        for (int i = 0; i < 10000; i++) {
+//            BeanUtils.copy(dog, DogDto.class);
+//        }
+//        stopWatch.stop();
+//
+//        System.out.println("beanCopie" + stopWatch.getTotalTimeMillis());
+//
+//        return R.success();
+//    }
 
-        for (int i = 0; i < 10000; i++) {
-          dozerUtils.map(dog, DogDto.class);
+    public static void main(String[] args) {
+        //创建并启动StopWatch
+        StopWatch stopwatch = StopWatch.createStarted();
+        //业务逻辑......
+        for (int i = 0; i < 100; i++) {
+            System.out.println(i);
         }
-        stopWatch.stop();
-
-        System.out.println("dozer耗时" + stopWatch.getTotalTimeMillis());
-
-        return R.success();
+        stopwatch.stop();
+        //分钟,不足59秒,返回0
+        System.out.println("分钟单位" +  " :" + stopwatch.getTime(TimeUnit.MINUTES));
+        //毫秒单位
+        System.out.println("毫秒单位" + " :" + stopwatch.getTime(TimeUnit.MILLISECONDS));
+        //微妙单位
+        System.out.println("微妙单位" + " :" +stopwatch.getTime(TimeUnit.MICROSECONDS));
     }
-
-    @GetMapping(value = "/test/beanCopie")
-    public R test2() {
-        Dog dog = new Dog();
-        dog.setName("哈哈");
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
-
-        for (int i = 0; i < 10000; i++) {
-            BeanUtils.copy(dog, DogDto.class);
-        }
-        stopWatch.stop();
-
-        System.out.println("beanCopie" + stopWatch.getTotalTimeMillis());
-
-        return R.success();
-    }
-
 
 }
 

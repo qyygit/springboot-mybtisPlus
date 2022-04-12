@@ -68,6 +68,17 @@ public class WebLogAspect {
         WebLog webLog = new WebLog();
 
         long start = System.currentTimeMillis() ;
+//        //创建并启动StopWatch
+//        StopWatch stopwatch = StopWatch.createStarted();
+//        //业务逻辑......
+//
+//        stopwatch.stop();
+//        //分钟,不足59秒,返回0
+//        System.out.println("分钟单位" +  " :" + stopwatch.getTime(TimeUnit.MINUTES));
+//        //毫秒单位
+//        System.out.println("毫秒单位" + " :" + stopwatch.getTime(TimeUnit.MILLISECONDS));
+//        //微妙单位
+//        System.out.println("微妙单位" + " :" +stopwatch.getTime(TimeUnit.MICROSECONDS));
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         String token = request.getHeader(SystemConstants.AUTHORIZE_TOKEN);

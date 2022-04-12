@@ -17,6 +17,10 @@ import java.util.function.Supplier;
 public class BeanUtils extends org.springframework.beans.BeanUtils {
     private static final Map<String, BeanCopier> BEAN_COPIERS_CACHE = new HashMap<>();
 
+//    Student student = new Student();
+//    net.sf.cglib.beans.BeanCopier beanCopier = BeanCopier.create(studentDto.getClass(), student.getClass(), false);
+//        beanCopier.copy(studentDto,studentDto,null);
+//
     public static void copy(Object source, Object target) {
         copy(source, target, false, null);
     }

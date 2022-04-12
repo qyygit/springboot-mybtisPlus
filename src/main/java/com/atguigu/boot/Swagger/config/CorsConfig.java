@@ -1,4 +1,4 @@
-package com.atguigu.boot.config;
+package com.atguigu.boot.Swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
