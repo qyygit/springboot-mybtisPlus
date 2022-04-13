@@ -53,10 +53,12 @@ public class KuaiDiController  extends BaseController {
     @ApiOperation(value = "查询物流轨迹")
     @PostMapping(value = "/queryTrack")
     public ExpressageEntity queryTrack(@NotEmpty(message = "订单号不能为空") String num, String com){
+        //客户customer
+        // sign 签名 签名， 用于验证身份， 按param + key + customer 的顺序进行MD5加密（注意加密后字符串一定要转32位大写）， 不需要加上“+”号
         QueryTrackReq queryTrackReq = new QueryTrackReq();
         QueryTrackParam queryTrackParam = new QueryTrackParam();
 //        queryTrackParam.setCom(CompanyConstant.YT);
-        if(StringUtils.isNotEmpty(com))
+        if(StringUtils.isNotBlank(com))
             queryTrackParam.setCom(com);
 
         queryTrackParam.setNum(num); //YT6074326614455

@@ -45,7 +45,8 @@ public class WebLogAspect {
      * 1 定义切入点
      */
 //    @Pointcut("@annotation(com.shooin.config.aspect.WebLogAnon)")
-    @Pointcut("execution(* com.atguigu.boot.mybatisPlus.*.*(..))")
+    @Pointcut("execution(* com.atguigu..controller.*.*(..)) "
+            +   "&& !execution(* com.qyy..controller.*.*(..)) ")
     public void webLog(){}
 
     /**
