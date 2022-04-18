@@ -1,11 +1,11 @@
-package com.qyy.thread;
+package com.atguigu.boot.thread;
 
 class TicketOffice extends Thread {
     private Object object;
 
     private int ticketNum;
 
-    public TicketOffice(java.lang.Object object, int ticketNum) {
+    public TicketOffice(Object object, int ticketNum) {
         this.object = object;
         this.ticketNum = ticketNum;
     }

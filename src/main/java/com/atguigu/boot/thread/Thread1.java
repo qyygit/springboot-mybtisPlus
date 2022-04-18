@@ -1,4 +1,4 @@
-package com.qyy.thread;
+package com.atguigu.boot.thread;
 
 class Thread1 implements Runnable{
 	private String name;

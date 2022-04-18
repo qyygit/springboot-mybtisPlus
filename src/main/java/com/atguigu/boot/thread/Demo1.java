@@ -1,4 +1,4 @@
-package com.qyy.thread;
+package com.atguigu.boot.thread;
 
 public class Demo1 {
 
