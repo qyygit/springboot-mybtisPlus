@@ -27,19 +27,13 @@ public class OrderController {
         long startTime = System.currentTimeMillis();
 
 
-        //模拟数据库数据
-        List<OrderVO> orderVOList = orderService.createDataOrder();
-        List<User> users = orderService.createDataUser();
-
-        System.out.println("orderVOList"  + orderVOList.size());
-        System.out.println("users"  + users.size());
-        List<OrderVO> orderVOS = orderService.singleThread();
+         orderService.singleThread();
+         orderService.singleThread2();
 
 //        System.out.println(orderVOS.get(0));
         long endTime = System.currentTimeMillis();
 
         System.out.println("执行时间：" + (endTime - startTime) + " ms");
-        System.out.println("orderVOS"  + orderVOS.size());
 
     }
 
@@ -58,7 +52,6 @@ public class OrderController {
         System.out.println("users"  + users.size());
 
         List<OrderVO> orderVOS = orderService.multiThread(orderVOList, users);
-        System.out.println(orderVOList);
         long endTime = System.currentTimeMillis();
         System.out.println("orderVOS"  + orderVOS.size());
 

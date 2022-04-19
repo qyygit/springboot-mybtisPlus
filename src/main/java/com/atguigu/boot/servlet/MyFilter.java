@@ -9,13 +9,18 @@ import java.io.IOException;
 //@WebFilter(urlPatterns={"/css/*","/images/*"}) //my
 @Slf4j
 public class MyFilter implements Filter {
+
+
+    private static final String AUTH_TOKEN = "token";
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         log.info("过滤器Filter程序 init方法初始化成功");
     }
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
         log.info("过滤器Filter程序 doFilter方法开始工作");
     }
 

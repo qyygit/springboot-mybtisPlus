@@ -111,7 +111,7 @@ public class IndexController extends BaseController {
             return "redirect:/main.html";
         } else {
             model.addAttribute("msg", "账号密码错误");
-            return "login";
+            return "redirect:/login.html";
         }
     }
 

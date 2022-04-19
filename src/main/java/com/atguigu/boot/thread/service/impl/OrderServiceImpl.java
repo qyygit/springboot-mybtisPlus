@@ -28,10 +28,11 @@ public class OrderServiceImpl implements OrderService {
 //    private List<OrderVO> orderVOS = new ArrayList<>();
 //    private List<User> users = new ArrayList<>();
 
+    private   long dataCount = 10000;
+
     @Override
     public List<OrderVO> createDataOrder() {
 
-        long dataCount = 5000;
         List<OrderVO> orderVOS = new ArrayList<>();
 //
         // 创建订单数据。模拟已经插入到数据库的订单
@@ -56,7 +57,6 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<User> createDataUser() {
 
-        long dataCount = 5000;
         List<User> users = new ArrayList<>();
 
 
@@ -72,10 +72,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
 //    @Async
-    public List<OrderVO> singleThread() {
-        List<OrderVO> orderVOS = createDataOrderNew();
-        List<User> users = createDataUserNew();
+    public void singleThread() throws InterruptedException {
 
+        Thread.sleep(1000);
+        System.out.println("singleThread 方法一");
+        //模拟数据
+        List<OrderVO> orderVOS = createDataOrderNew();
+        //模拟数据
+        List<User> users = createDataUserNew();
         for (OrderVO orderVO : orderVOS) {
             try {
 //                Thread.sleep(10);
@@ -89,10 +93,33 @@ public class OrderServiceImpl implements OrderService {
                 e.printStackTrace();
             }
         }
+        System.out.println(users.size());
 
-        return orderVOS;
     }
+//    @Async
+    public void singleThread2() throws Exception {
 
+        System.out.println("singleThread2 方法二");
+        //模拟数据
+        List<OrderVO> orderVOS = createDataOrderNew();
+        //模拟数据
+        List<User> users = createDataUserNew();
+        for (OrderVO orderVO : orderVOS) {
+            try {
+//                Thread.sleep(10);
+                for (User user : users) {
+                    if (orderVO.getUserId().equals(user.getId())) {
+                        orderVO.setUserName(user.getUserName());
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(users.size());
+
+    }
 
     @Override
     public List<OrderVO> multiThread(List<OrderVO> orderVOList, List<User> users) {
@@ -107,7 +134,7 @@ public class OrderServiceImpl implements OrderService {
 
         List<OrderVO> list = null;
         try {
-            list = synchroniseUtil.get(10, TimeUnit.SECONDS);
+            list = synchroniseUtil.get(20, TimeUnit.SECONDS);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -120,9 +147,8 @@ public class OrderServiceImpl implements OrderService {
         return list;
     }
 
-    public static List<OrderVO> createDataOrderNew() {
+    public  List<OrderVO> createDataOrderNew() {
 
-        long dataCount = 50000;
         List<OrderVO> orderVOS = new ArrayList<>();
 //
         // 创建订单数据。模拟已经插入到数据库的订单
@@ -144,9 +170,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
 
-    public static List<User> createDataUserNew() {
+    public  List<User> createDataUserNew() {
 
-        long dataCount = 50000;
         List<User> users = new ArrayList<>();
 
 

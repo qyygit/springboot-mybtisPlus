@@ -10,7 +10,10 @@ public interface OrderService {
     List<OrderVO> createDataOrder();
 
     List<User> createDataUser();
-    List<OrderVO> singleThread();
+
+    void singleThread() throws InterruptedException;
 
     List<OrderVO> multiThread(List<OrderVO> orderVOList,List<User> users);
+
+    void singleThread2() throws InterruptedException, Exception;
 }
