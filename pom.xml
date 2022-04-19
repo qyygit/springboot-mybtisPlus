@@ -76,11 +76,11 @@
             <optional>true</optional>
         </dependency>
         <!--import org.apache.commons.collections4.CollectionUtils 判断集合是否为空;-->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>4.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.commons</groupId>-->
+<!--            <artifactId>commons-collections4</artifactId>-->
+<!--            <version>4.0</version>-->
+<!--        </dependency>-->
         <!--lang3  StringUtils.isNotEmpty("str)-->
         <dependency>
             <groupId>org.apache.commons</groupId>
